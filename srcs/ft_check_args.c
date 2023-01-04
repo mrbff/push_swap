@@ -6,11 +6,11 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:56:16 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/03 19:19:29 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/04 18:22:21 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	is_num(char *s)
 {
@@ -32,7 +32,7 @@ static int	is_num(char *s)
 	return (1);
 }
 
-static int not_only_num(int ac, char **av)
+static int	not_only_num(int ac, char **av)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ static int not_only_num(int ac, char **av)
 	return (0);
 }
 
-static int double_arg(int ac, char **av)
+static int	double_arg(int ac, char **av)
 {
 	int i;
 	int j;
@@ -66,18 +66,11 @@ static int double_arg(int ac, char **av)
 	return (0);
 }
 
-void	ft_check_args(int ac, char **av)
+int	*ft_check_args(int ac, char **av)
 {
 	if (ac < 2)
-		exit(0);
-	if (not_only_num(ac, av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(0);
-	}
-	if (double_arg(ac, av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(0); 
-	}
+		exit(1);
+	if (not_only_num(ac, av) || double_arg(ac, av))
+		ft_puterror();
+	return (ft_check_ints(ac, av));
 }

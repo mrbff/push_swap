@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_puterror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 16:46:49 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/04 19:38:22 by mabaffo          ###   ########.fr       */
+/*   Created: 2023/01/04 17:32:36 by mabaffo           #+#    #+#             */
+/*   Updated: 2023/01/04 17:35:18 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int ac, char **av)
+void	ft_puterror(void)
 {
-	t_stack	*top;
-
-	top = ft_check_and_create(ac, av);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
