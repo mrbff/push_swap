@@ -1,11 +1,13 @@
 NAME			:=	push_swap
 
-SRCS_DIR		:=	./S/
+SRCS_DIR		:=	./srcs/
 
-FILES		:=	swap.c \
-				push.c \
-				rotate.c \
-				rrotate.c \
+FILES		:=	main.c \
+				ft_check_and_create.c \
+				ft_check_args.c \
+				ft_check_ints.c \
+				ft_puterror.c \
+				ft_newlist.c \
 
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 
@@ -29,12 +31,14 @@ RM				:=	rm -f
 
 LIBFT			:=	libft/libft.a
 LIBFTMAKE		:=	make -sC libft
+LIBFTMAKEBONUS	:=	make -sC libft bonus
 
-$(NAME):		$(NAME)
+$(NAME):	$(OBJS)
 			@$(LIBFTMAKE)
-			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(SE_NAME) ${CLR_RMV}..."
+			@$(LIBFTMAKEBONUS)
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			@$(CC) $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-			@echo "$(GREEN)$(SE_NAME) created ✔️ ${CLR_RMV}"
+			@echo "$(GREEN)$(NAME) created ✔️ ${CLR_RMV}"
 
 all:			$(NAME)
 
@@ -44,7 +48,7 @@ clean:
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
-				@ $(RM) $(SE_NAME) $(CL_NAME) $(LIBFT)
+				@ $(RM) $(NAME) $(LIBFT)
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binaries ✔️"
 
 re:				fclean all
