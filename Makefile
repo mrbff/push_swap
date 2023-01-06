@@ -8,6 +8,10 @@ FILES		:=	main.c \
 				ft_check_ints.c \
 				ft_puterror.c \
 				ft_newlist.c \
+				swap.c \
+				ft_push.c \
+				ft_rotate.c \
+				ft_rrotate.c \
 
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 
