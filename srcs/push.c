@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrotate.c                                       :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 17:01:41 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/06 17:56:17 by mabaffo          ###   ########.fr       */
+/*   Created: 2023/01/03 15:57:53 by mabaffo           #+#    #+#             */
+/*   Updated: 2023/01/07 16:24:57 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_list	*ft_newlast(t_list *lst)
+void	ft_push(t_list **topfrom, t_list **topto)
 {
-	while (lst->next->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*tmp;
+
+	if (!topfrom || !(*topfrom))
+		return ;
+	tmp = (*topfrom)->next;
+	ft_lstadd_front(topto, *topfrom);
+	*topfrom = tmp;
 }
 
-void	ft_rrotate(t_list **top)
+void	ft_pa(t_list **ta, t_list **tb)
 {
-	t_list	*newlast;
+	ft_printf("pa\n");
+	ft_push(ta, tb);
+}
 
-	if (!top || !(*top) || !((*top)->next))
-		return ;
-	newlast = ft_newlast(*top);
-	ft_lstadd_front(top, newlast->next);
-	newlast->next = NULL;
+void	ft_pb(t_list **tb, t_list **ta)
+{
+	ft_printf("pb\n");
+	ft_push(tb, ta);
 }

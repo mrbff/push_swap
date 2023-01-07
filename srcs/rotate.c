@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:29:41 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/06 17:59:19 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:49:45 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,22 @@ void	ft_rotate(t_list **top)
 	(*top)->next = NULL;
 	ft_lstadd_back(&tmp, *top);
 	*top = tmp;
+}
+
+void	ft_ra(t_list **ta)
+{
+	ft_printf("ra\n");
+	ft_rotate(ta);
+}
+void	ft_rb(t_list **tb)
+{
+	ft_printf("rb\n");
+	ft_rotate(tb);
+}
+
+void	ft_rr(t_list **ta, t_list **tb)
+{
+	ft_printf("rr\n");
+	ft_rotate(ta);
+	ft_rotate(tb);
 }

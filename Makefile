@@ -9,9 +9,10 @@ FILES		:=	main.c \
 				ft_puterror.c \
 				ft_newlist.c \
 				swap.c \
-				ft_push.c \
-				ft_rotate.c \
-				ft_rrotate.c \
+				push.c \
+				rotate.c \
+				rrotate.c \
+				ft_sort3.c \
 
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 
