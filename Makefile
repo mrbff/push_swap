@@ -13,6 +13,9 @@ FILES		:=	main.c \
 				rotate.c \
 				rrotate.c \
 				ft_sort3.c \
+				ft_sort5.c \
+				ft_findmin.c \
+				ft_sort.c \
 
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 

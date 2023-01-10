@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:01:12 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/07 16:50:16 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/10 21:11:08 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ void	ft_rra(t_list **ta);
 void	ft_rrb(t_list **tb);
 void	ft_rrr(t_list **ta, t_list **tb);
 void	ft_sort3(t_list **ta);
+void	ft_sort5(t_list **ta, t_list **tb);
+t_list	*ft_findmin(t_list	*lst);
+void	ft_sort(t_list **ta, t_list **tb);
 
 #endif

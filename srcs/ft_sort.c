@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_ints.c                                    :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 17:23:32 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/10 21:43:17 by mabaffo          ###   ########.fr       */
+/*   Created: 2023/01/10 21:06:40 by mabaffo           #+#    #+#             */
+/*   Updated: 2023/01/10 22:56:51 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	f_err(int *arr)
+void	ft_sort(t_list **ta, t_list **tb)
 {
-	free(arr);
-	ft_puterror();
-}
+	t_list	*tmp;
+	int		size;
+	int		i;
 
-int	*ft_check_ints(int ac, char **av)
-{
-	int			*arr;
-	int			i;
-	long int	tmp;
-
-	arr = (int *) malloc(sizeof(int) * (ac - 1));
-	if (!arr)
-		ft_puterror();
-	i = 1;
-	while (i < ac)
+	i = 0;
+	size = ft_lstsize(*ta);
+	while (size > 3)
 	{
-		if (ft_strlen(av[i]) > 11)
-			f_err(arr);
-		tmp = ft_atoli(av[i]);
-		if (tmp > (long int)(2147483647) || tmp < (long int)(-2147483648))
-			f_err(arr);
+		tmp = ft_findmin(*ta);
+		if (ft_lstsize(tmp) < size / 2)
+		{
+			while ((*ta)->content != tmp->content)
+				ft_rra(ta);
+		}
 		else
-			arr[i - 1] = tmp;
+			while ((*ta)->content != tmp->content)
+				ft_ra(ta);
+		ft_pa(ta, tb);
 		i++;
+		size = ft_lstsize(*ta);
 	}
-	return (arr);
+	ft_sort3(ta);
+	while (i--)
+		ft_pb(tb, ta);
 }

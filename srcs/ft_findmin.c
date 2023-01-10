@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_ints.c                                    :+:      :+:    :+:   */
+/*   ft_findmin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 17:23:32 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/10 21:43:17 by mabaffo          ###   ########.fr       */
+/*   Created: 2023/01/10 19:40:31 by mabaffo           #+#    #+#             */
+/*   Updated: 2023/01/10 20:16:20 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	f_err(int *arr)
+t_list	*ft_findmin(t_list	*lst)
 {
-	free(arr);
-	ft_puterror();
-}
+	t_list	*min;
 
-int	*ft_check_ints(int ac, char **av)
-{
-	int			*arr;
-	int			i;
-	long int	tmp;
-
-	arr = (int *) malloc(sizeof(int) * (ac - 1));
-	if (!arr)
-		ft_puterror();
-	i = 1;
-	while (i < ac)
+	min = lst;
+	while (lst)
 	{
-		if (ft_strlen(av[i]) > 11)
-			f_err(arr);
-		tmp = ft_atoli(av[i]);
-		if (tmp > (long int)(2147483647) || tmp < (long int)(-2147483648))
-			f_err(arr);
-		else
-			arr[i - 1] = tmp;
-		i++;
+		if (*((int *)(min->content)) > *((int *)(lst->content)))
+			min = lst;
+		lst = lst->next;
 	}
-	return (arr);
+	return (min);
 }

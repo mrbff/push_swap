@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:35:56 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/07 16:53:58 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/10 23:06:27 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_sort3(t_list **ta)
 	{
 		if (*(int *)((*ta)->next->content) > *(int *)((*ta)->next->next->content))
 		{
-			ft_ra(ta);
-			ft_ra(ta);
+			ft_sa(*ta);
+			ft_rra(ta);
 		}
 		else if (*(int *)((*ta)->content) > *(int *)((*ta)->next->next->content))
 			ft_ra(ta);

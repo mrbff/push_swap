@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:46:49 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/10 18:49:45 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/10 23:02:18 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	main(int ac, char **av)
 	}
 	else if (ac == 4)
 		ft_sort3(&top_a);
-	ft_print_ilst(top_a);
 	else if (ac < 7)
 		ft_sort5(&top_a, &top_b);
-/*	else
-		ft_sort();*/
+	else
+		ft_sort(&top_a, &top_b);
+//	ft_print_ilst(top_a);
 	ft_lstclear(&top_a, &free);
 	return (0);
 }
