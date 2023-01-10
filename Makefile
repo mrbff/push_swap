@@ -7,7 +7,6 @@ FILES		:=	main.c \
 				ft_check_args.c \
 				ft_check_ints.c \
 				ft_puterror.c \
-				ft_newlist.c \
 				swap.c \
 				push.c \
 				rotate.c \
