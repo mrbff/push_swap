@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:01:12 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/10 23:31:48 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/11 16:06:05 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_sa(t_list *ta);
 void	ft_sb(t_list *tb);
 void	ft_ss(t_list *top_a, t_list *top_b);
 void	ft_push(t_list **topfrom, t_list **topto);
-void	ft_pa(t_list **ta, t_list **tb);
-void	ft_pb(t_list **tb, t_list **ta);
+void	ft_pa(t_list **tb, t_list **ta);
+void	ft_pb(t_list **ta, t_list **tb);
 void	ft_rotate(t_list **top);
 void	ft_ra(t_list **ta);
 void	ft_rb(t_list **tb);

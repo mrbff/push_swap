@@ -6,7 +6,7 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:06:40 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/10 22:56:51 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/11 11:09:29 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	ft_sort(t_list **ta, t_list **tb)
 		else
 			while ((*ta)->content != tmp->content)
 				ft_ra(ta);
-		ft_pa(ta, tb);
+		ft_pb(ta, tb);
 		i++;
 		size = ft_lstsize(*ta);
 	}
 	ft_sort3(ta);
 	while (i--)
-		ft_pb(tb, ta);
+		ft_pa(tb, ta);
 }

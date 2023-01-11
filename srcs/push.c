@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:57:53 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/07 16:24:57 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/11 11:07:56 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	ft_push(t_list **topfrom, t_list **topto)
 	*topfrom = tmp;
 }
 
-void	ft_pa(t_list **ta, t_list **tb)
+void	ft_pa(t_list **tb, t_list **ta)
 {
 	ft_printf("pa\n");
-	ft_push(ta, tb);
+	ft_push(tb, ta);
 }
 
-void	ft_pb(t_list **tb, t_list **ta)
+void	ft_pb(t_list **ta, t_list **tb)
 {
 	ft_printf("pb\n");
-	ft_push(tb, ta);
+	ft_push(ta, tb);
 }
