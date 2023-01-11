@@ -6,11 +6,24 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:06:40 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/11 11:09:00 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/11 20:44:28 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static int	ft_lstindex(t_list *head, t_list *target)
+{
+	int	i;
+
+	i = 0;
+	while (head->content != target->content)
+	{
+		head = head->next;
+		i++;
+	}
+	return (i);
+}
 
 void	ft_sort5(t_list **ta, t_list **tb)
 {
@@ -23,14 +36,14 @@ void	ft_sort5(t_list **ta, t_list **tb)
 	while (size > 3)
 	{
 		tmp = ft_findmin(*ta);
-		if (ft_lstsize(tmp) < size / 2)
+		if (ft_lstindex(*ta, tmp) < (size - 1 / 2))
 		{
 			while ((*ta)->content != tmp->content)
-				ft_rra(ta);
+				ft_ra(ta);
 		}
 		else
 			while ((*ta)->content != tmp->content)
-				ft_ra(ta);
+				ft_rra(ta);
 		ft_pb(ta, tb);
 		i++;
 		size = ft_lstsize(*ta);
