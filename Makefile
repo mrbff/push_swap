@@ -6,13 +6,14 @@ FILES		:=	main.c \
 				ft_check_and_create.c \
 				ft_check_args.c \
 				ft_check_ints.c \
+				ft_lst_issorted.c \
 				ft_puterror.c \
 				swap.c \
 				push.c \
 				rotate.c \
 				rrotate.c \
 				ft_sort3.c \
-				ft_sort5.c \
+				ft_lilsort.c \
 				ft_findmin.c \
 				ft_sort.c \
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort5.c                                         :+:      :+:    :+:   */
+/*   ft_lilsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:06:40 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/11 20:44:28 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/12 13:19:36 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_lstindex(t_list *head, t_list *target)
 	return (i);
 }
 
-void	ft_sort5(t_list **ta, t_list **tb)
+void	ft_lilsort(t_list **ta, t_list **tb)
 {
 	t_list	*tmp;
 	int		size;
@@ -36,7 +36,7 @@ void	ft_sort5(t_list **ta, t_list **tb)
 	while (size > 3)
 	{
 		tmp = ft_findmin(*ta);
-		if (ft_lstindex(*ta, tmp) < (size - 1 / 2))
+		if (ft_lstindex(*ta, tmp) < (size / 2))
 		{
 			while ((*ta)->content != tmp->content)
 				ft_ra(ta);
