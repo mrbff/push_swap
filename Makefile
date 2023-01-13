@@ -1,5 +1,7 @@
 NAME			:=	push_swap
 
+BNAME			:=	checker
+
 SRCS_DIR		:=	./srcs/
 
 FILES		:=	main.c \
@@ -17,9 +19,24 @@ FILES		:=	main.c \
 				ft_findmin.c \
 				ft_sort.c \
 
+BFILES		:=	checker_bonus.c \
+				ft_check_and_create.c \
+				ft_check_args.c \
+				ft_check_ints.c \
+				ft_lst_issorted.c \
+				ft_puterror.c \
+				swap.c \
+				push.c \
+				rotate.c \
+				rrotate.c \
+
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 
+BSRCS			:=	$(addprefix $(SRCS_DIR), $(BFILES))
+
 OBJS			:=	$(SRCS:.c=.o)
+
+BOBJS			:=	$(BSRCS:.c=.o)
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
@@ -48,7 +65,14 @@ $(NAME):	$(OBJS)
 			@$(CC) $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 			@echo "$(GREEN)$(NAME) created ✔️ ${CLR_RMV}"
 
-all:			$(NAME)
+bonus:		$(BOBJS)
+			@$(LIBFTMAKE)
+			@$(LIBFTMAKEBONUS)
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(BNAME) ${CLR_RMV}..."
+			@$(CC) $(FLAGS) $(BOBJS) $(LIBFT) -o $(BNAME)
+			@echo "$(GREEN)$(BNAME) created ✔️ ${CLR_RMV}"
+
+all:			$(NAME) $(BONUS)
 
 clean:
 				@ make -sC ./libft clean
@@ -56,7 +80,7 @@ clean:
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
-				@ $(RM) $(NAME) $(LIBFT)
+				@ $(RM) $(NAME) $(BNAME) $(LIBFT)
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binaries ✔️"
 
 re:				fclean all
