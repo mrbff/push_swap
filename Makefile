@@ -29,6 +29,7 @@ BFILES		:=	checker_bonus.c \
 				push.c \
 				rotate.c \
 				rrotate.c \
+				get_next_line.c \
 
 SRCS			:=	$(addprefix $(SRCS_DIR), $(FILES))
 
