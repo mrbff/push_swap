@@ -78,12 +78,13 @@ all:			$(NAME) $(BONUS)
 clean:
 				@ make -sC ./libft clean
 				@ ${RM} *.o */*.o */*/*.o
-				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+				@ echo "$(RED)Deleting $(CYAN)objs $(CLR_RMV)✔️"
 
 fclean:			clean
 				@ $(RM) $(NAME) $(BNAME) $(LIBFT)
-				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binaries ✔️"
+				@ echo "$(RED)Deleting $(CYAN)binaries $(CLR_RMV)✔️"
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re bonus
+.SILENT:

@@ -6,13 +6,13 @@
 /*   By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:41:19 by mabaffo           #+#    #+#             */
-/*   Updated: 2023/01/14 15:44:47 by mabaffo          ###   ########.fr       */
+/*   Updated: 2023/01/14 18:33:08 by mabaffo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-static void	fucknorminette(t_list **ta, t_list **tb)
+static void	f_cknorminette(t_list **ta, t_list **tb)
 {
 	ft_rotate(ta);
 	ft_rotate(tb);
@@ -25,7 +25,7 @@ static void	ft_move(t_list **ta, t_list **tb, char *line)
 	else if (!ft_strcmp(line, "rb\n"))
 		ft_rotate(tb);
 	else if (!ft_strcmp(line, "rr\n"))
-		fucknorminette(ta, tb);
+		f_cknorminette(ta, tb);
 	else if (!ft_strcmp(line, "rra\n"))
 		ft_rrotate(ta);
 	else if (!ft_strcmp(line, "rrb\n"))
@@ -43,6 +43,17 @@ static void	ft_move(t_list **ta, t_list **tb, char *line)
 		ft_push(tb, ta);
 	else if (!ft_strcmp(line, "pb\n"))
 		ft_push(ta, tb);
+}
+
+static void	f_cknorminette2(t_list **ta, t_list **tb)
+{
+	if (!(*tb) && ft_lst_issorted(*ta))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	ft_lstclear(ta, &free);
+	if (*tb)
+		ft_lstclear(tb, &free);
 }
 
 int	main(int ac, char **av)
@@ -64,10 +75,6 @@ int	main(int ac, char **av)
 			free(line);
 		}
 	}
-	if (ft_lst_issorted(top_a))
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
-	ft_lstclear(&top_a, &free);
+	f_cknorminette2(&top_a, &top_b);
 	return (0);
 }
